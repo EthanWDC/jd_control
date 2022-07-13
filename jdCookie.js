@@ -5,7 +5,7 @@ let CookieJDs = []
 
 try {
   process.chdir(__dirname)
-  fs.accessSync('.env', fs.constants.R_OK)
+  fs.accessSync(process.env.JDPATH + '.env', fs.constants.R_OK)
   dotenv.config()
 } catch (e) {
 }
