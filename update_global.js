@@ -4,7 +4,7 @@
 */
 
 const $ = new Env('更新环境变量');
-const notify = $.isNode() ? require(process.env.JDPATH + 'sendNotify') : '';
+const notify = $.isNode() ? require(process.env.JDPATH + 'sendNotify.js') : '';
 
 const fs = require('fs');
 const download = require('download');
