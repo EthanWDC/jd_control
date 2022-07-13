@@ -1,8 +1,6 @@
 #!/bin/sh
 set -e
 
-jdpath="../JDHelloWorld_jd_scripts_main/"
-
 echo "overwrite sendNotify.js..."
 cat /ql/data/scripts/EthanWDC_jd_control/custom_sendNotify.js > /ql/data/scripts/JDHelloWorld_jd_scripts_main/sendNotify.js
 
