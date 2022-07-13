@@ -1,6 +1,6 @@
 /**
 * 互助码数据库更新
-* cron: 45 0-24/3,23 * * *
+* cron: 45 0-23/3,23 * * *
 */
 const $ = new Env("互助码数据库更新");
 //const JD_API_HOST = "https://api.m.jd.com/client.action";
