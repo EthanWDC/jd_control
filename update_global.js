@@ -144,7 +144,7 @@ async function update_env(results) {
 
 	let jd_cookie = jdcookies.join("&");
 	$.jd_cookie_txt = jdcookies.join("\n"); //prepare cookie for JDCookie.txt
-    let jd_user = users.join("|");
+    	let jd_user = users.join("|");
 	let fruit_sc = fruit.join("@"); //一个账号的sharecode
 	let pet_sc = pet.join("@"); //一个账号的sharecode
 	let plantbean_sc = plantbean.join("@"); //一个账号的sharecode
@@ -164,16 +164,16 @@ async function update_env(results) {
     	let ENV_QYWX_AM = "wwf6b6a7bfc4965863,YSUKVdy3aRS1cEVhwsZdw7BnZbI41mSvgjVujJwYh8U," + jd_user + ",1000002,2";
     	
     	let env_fruit_sc = [];
-		let env_pet_sc = [];
-		let env_plantbean_sc = [];
-		let env_ddfactory_sc = [];
-		let env_dreamfactory_sc = [];
-		let env_joy_sc = [];
-		let env_bookshop_sc = [];
-		let env_cash_sc = [];
-		let env_jxnc_sc = [];
-		let env_sgmh_sc = [];
-		let env_jdzz_sc = [];
+	let env_pet_sc = [];
+	let env_plantbean_sc = [];
+	let env_ddfactory_sc = [];
+	let env_dreamfactory_sc = [];
+	let env_joy_sc = [];
+	let env_bookshop_sc = [];
+	let env_cash_sc = [];
+	let env_jxnc_sc = [];
+	let env_sgmh_sc = [];
+	let env_jdzz_sc = [];
     	let env_cfd_sc = [];
     	let env_health_sc = [];
     
@@ -259,7 +259,7 @@ async function update_file(results) {
 	//京喜工厂修改
 	await updateTuanIdsCDN('https://raw.githubusercontent.com/gitupdate/updateTeam/master/shareCodes/jd_updateFactoryTuanId.json'); //获取京喜团活动ID
     
-    let content = await fs.readFileSync(process.env.JDPATH + 'jd_dreamFactory.js', 'utf8');
+    	let content = await fs.readFileSync(process.env.JDPATH + 'jd_dreamFactory.js', 'utf8');
 	//let replace_str = `(pin === '${results[0].dreamfactory}' || pin === '${results[1].dreamfactory}' || pin === '${results[2].dreamfactory}' || pin === '${results[3].dreamfactory}')`;
    	//content = content.replace(/\(pin === '(.*)'\)/, replace_str); //避免0,1,2,3账号被偷
 	content = content.replace(/if\s*\(\$\.canHelp\)\s*await\s*joinLeaderTuan\(\);/, ``); //不加入作者的团
@@ -273,15 +273,15 @@ async function update_file(results) {
 	let json_address = 'https://raw.githubusercontent.com/gitupdate/updateTeam/master/shareCodes/jd_updateFactoryTuanId.json';
 	content = content.replace(/https\:\/\/raw\.githubusercontent\.com\/JDHelloWorld\/jd_scripts\/main\/tools\/empty\.json/, json_address);
 
-    await fs.writeFileSync( process.env.JDPATH + 'jd_dreamFactory.js', content, 'utf8');
-    console.log("更新jd_dreamFactory.js:" + replace_str);
+    	await fs.writeFileSync( process.env.JDPATH + 'jd_dreamFactory.js', content, 'utf8');
+    	console.log("更新jd_dreamFactory.js:" + replace_str);
 
 	//let cont_cookie = await fs.readFileSync('/custom/jdCookie.js', 'utf8');
 	//await fs.writeFileSync( '/scripts/jdCookie.js', cont_cookie, 'utf8');
-    //console.log("覆盖jdCookie.js");
+    	//console.log("覆盖jdCookie.js");
 	//let cont_notify = await fs.readFileSync('/custom/sendNotify.js', 'utf8');
 	//await fs.writeFileSync( '/scripts/sendNotify.js', cont_notify, 'utf8');
-    //console.log("覆盖sendNotify.js");
+    	//console.log("覆盖sendNotify.js");
 
 	//将cookie提交到jdEnv.py
 	try{
@@ -295,9 +295,9 @@ async function update_file(results) {
 	try{
 		let cont_speed = await fs.readFileSync(process.env.JDPATH + 'jd_speed_sign.js', 'utf8');
  		//replace之后的内容稍有不同，防止重复replace
-    	cont_speed = cont_speed.replace(/\$\.msg\(\$\.name\,\s*\'\'\,\s*\`京东账号\$\{\$\.index\}\$\{\$\.nickName\}\\n\$\{message\}\`\)\;/, "$.msg($.name, '', `【京东账号${$.index}】${$.nickName}\n${message}`); notify.sendNotify($.name, `京东账号${$.index} ${$.nickName}\n${message}`);");
+    		cont_speed = cont_speed.replace(/\$\.msg\(\$\.name\,\s*\'\'\,\s*\`京东账号\$\{\$\.index\}\$\{\$\.nickName\}\\n\$\{message\}\`\)\;/, "$.msg($.name, '', `【京东账号${$.index}】${$.nickName}\n${message}`); notify.sendNotify($.name, `京东账号${$.index} ${$.nickName}\n${message}`);");
 		await fs.writeFileSync(process.env.JDPATH + 'jd_speed_sign.js', cont_speed, 'utf8');
-    	console.log("jd_speed_sign.js已成功修改!");
+    		console.log("jd_speed_sign.js已成功修改!");
     }catch(e){
     	console.log("jd_speed_sign.js修改失败...");
     }
