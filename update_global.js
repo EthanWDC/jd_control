@@ -1,6 +1,7 @@
-/*
- * Get information from DB and update enviroment
- */
+/**
+* 更新环境变量
+* cron: 0-59/5 * * * *
+*/
 
 const $ = new Env('更新环境变量');
 const notify = $.isNode() ? require(process.env.JDPATH + './sendNotify') : '';
