@@ -1,8 +1,8 @@
 /**
 * 互助码数据库更新
-* cron: 45 0,3,6,9,12,15,18,21,23 * * *
+* cron: 45 0-24/3,23 * * *
 */
-const $ = new Env("获取互助码");
+const $ = new Env("互助码数据库更新");
 //const JD_API_HOST = "https://api.m.jd.com/client.action";
 let cookiesArr = [], cookie = '', message;
 //const jdCookieNode = $.isNode() ? require('jdCookie.js') : ''; //Ethan Changed
