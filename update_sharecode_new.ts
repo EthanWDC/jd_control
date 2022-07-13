@@ -54,38 +54,38 @@ let db_plantbean: string = '', db_fruit: string = '', db_health: string = '', db
     console.log(`\n开始【京东账号${index}】${UserName}\n`);
     s = await bean(cookie)
     s ? beans += s + '&' : ''
+    s ? db_plantbean = s : '' //
     console.log('种豆得豆:', s)
-    db_plantbean = s    //
-      
+    
     s = await farm(cookie)
     s ? farms += s + '&' : ''
+    s ? db_fruit = s : '' //
     console.log('东东农场:', s)
-    db_fruit = s    //
       
     s = await health(cookie)
     s ? healths += s + '&' : ''
+    s ? db_health = s : '' //
     console.log('京东健康:', s)
-    db_health = s   //
     
     s = await pet(cookie)
     s ? pets += s + '&' : ''
+    s ? db_pet = s : '' //
     console.log('东东萌宠:', s)
-    db_pet = s  //
       
     s = await factory(cookie)
     s ? factorys += s + '&' : ''
+    s ? db_ddfactory = s : '' //
     console.log('东东工厂:', s)
-    db_ddfactory = s    //
       
     s = await jxfactory(cookie)
     s ? jxfactorys += s + '&' : ''
+    s ? db_dreamfactory = s : '' //
     console.log('京喜工厂:', s)
-    db_dreamfactory = s //
       
     s = await sgmh(cookie)
     s ? sgmhs += s + '&' : ''
+    s ? db_sgmh = s : '' //
     console.log('闪购盲盒:', s)
-    db_sgmh = s //
      
     //Ethan Added=====Start=====
     //如果此次获取失败，但原来有，仍然保持原来
