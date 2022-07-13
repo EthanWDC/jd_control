@@ -2,7 +2,8 @@
 * 互助码数据库更新
 * cron: 45 0-23/3,23 * * *
 */
-import {getCookie, wait} from "/ql/data/scripts/JDHelloWorld_jd_scripts_main/TS_USER_AGENTS.ts";
+let file_ts_user_agents : string = process.env.JDPATH + "TS_USER_AGENTS.ts";
+import {getCookie, wait} from file_ts_user_agents;
 import {bean, farm, pet, factory, sgmh, jxfactory, health} from "/ql/data/scripts/JDHelloWorld_jd_scripts_main/utils/shareCodesTool.ts";
 
 //Ethan Added =====Start=====
