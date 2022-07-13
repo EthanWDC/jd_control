@@ -274,7 +274,7 @@ async function update_file(results) {
 	content = content.replace(/https\:\/\/raw\.githubusercontent\.com\/JDHelloWorld\/jd_scripts\/main\/tools\/empty\.json/, json_address);
 
     	await fs.writeFileSync( process.env.JDPATH + 'jd_dreamFactory.js', content, 'utf8');
-    	console.log("更新jd_dreamFactory.js:" + replace_str);
+    	console.log("更新jd_dreamFactory.js完毕");
 
 	//let cont_cookie = await fs.readFileSync('/custom/jdCookie.js', 'utf8');
 	//await fs.writeFileSync( '/scripts/jdCookie.js', cont_cookie, 'utf8');
