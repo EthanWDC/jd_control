@@ -108,7 +108,7 @@ let beans: string = '', farms: string = '', healths: string = '', pets: string =
     let db_sql = `update jd set fruit='${db_fruit}',pet='${db_pet}',plantbean='${db_plantbean}',ddfactory='${db_ddfactory}',dreamfactory='${db_dreamfactory}',joy='${db_joy}',bookshop='${db_bookshop}',cash='${db_cash}',jxnc='${db_jxnc}',sgmh='${db_sgmh}',jdzz='${db_jdzz}',cfd='${db_cfd}',health='${db_health}' WHERE userid = '${db_results[i].userid}'`;
     try{
         //console.log(db_sql);
-        await db_query(db_sql);
+        //await db_query(db_sql);
         console.log("将互助码提交到数据库成功！\n");
     }catch(e){
         console.log("DB update error, continue...\n");
