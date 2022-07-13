@@ -2,8 +2,8 @@
 * 互助码数据库更新
 * cron: 45 0-23/3,23 * * *
 */
-import {getCookie, wait} from process.env.JDPATH+"TS_USER_AGENTS.ts";
-import {bean, farm, pet, factory, sgmh, jxfactory, health} from process.env.JDPATH+"utils/shareCodesTool.ts";
+import {getCookie, wait} from "/ql/data/scripts/EthanWDC_jd_control/TS_USER_AGENTS.ts";
+import {bean, farm, pet, factory, sgmh, jxfactory, health} from "/ql/data/scripts/EthanWDC_jd_control/utils/shareCodesTool.ts";
 
 //Ethan Added =====Start=====
 //引入数据库
