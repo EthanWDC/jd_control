@@ -41,12 +41,12 @@ function db_query(sql){
 let cookie: string = '', UserName: string, index: number
 let beans: string = '', farms: string = '', healths: string = '', pets: string = '', factorys: string = '', jxfactorys: string = '', sgmhs: string = '', s: string = '';
 let db_plantbean: string = '', db_fruit: string = '', db_health: string = '', db_pet: string = '', db_ddfactory: string = '', db_dreamfactory: string = '', db_sgmh: string = '';
-let db_joy: string = '', db_bookshop: string = '', db_cash: string = '', db_jxnc: string = '', db_jdzz: string = '', db_cfd: string = '';
 !(async () => {
   //let cookiesArr: string[] = await getCookie();
   //for (let i = 0; i < cookiesArr.length; i++) {
   let db_results: string[] = await db_query("SELECT * FROM `jd` WHERE active = 1 AND block = 0 ORDER BY sequence");
   for (let i = 0; db_results && i < db_results.length; i++) {
+    let db_joy: string = '', db_bookshop: string = '', db_cash: string = '', db_jxnc: string = '', db_jdzz: string = '', db_cfd: string = '';
     //cookie = cookiesArr[i];
     cookie = db_results[i].jdcookie;
     UserName = decodeURIComponent(cookie.match(/pt_pin=([^;]*)/)![1])
