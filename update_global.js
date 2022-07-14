@@ -316,7 +316,7 @@ async function update_file(results) {
 	try{
 		let cont_speed = await fs.readFileSync(process.env.JDPATH + 'jd_speed_coin.js', 'utf8');
  		//replace之后的内容稍有不同，防止重复replace
-    		cont_speed = cont_speed.replace(/\$\.msg\(\$\.name\,\s*\'\'\,\s*\`京东账号\$\{\$\.index\}\$\{\$\.nickName\}\\n\$\{message\}\`\)\;/, "\$.msg(\$.name, \'\', \`【京东账号\${\$.index}】\${\$.nickName}\n\${message}\`);const notify=require(process.env.JDPATH+\'sendNotify.js\');notify.sendNotify(\$.name, \`【京东账号\${\$.index}】\${\$.nickName}\\n\${message}\`);");
+    		cont_speed = cont_speed.replace(/\$\.msg\(\$\.name\,\s*\'\'\,\s*\`京东账号\$\{\$\.index\}\$\{\$\.nickName\}\\n\$\{message\}\`\)\;/, "\$.msg(\$.name, \'\', \`【京东账号\${\$.index}】\${\$.nickName}\\n\${message}\`);const notify=require(process.env.JDPATH+\'sendNotify.js\');notify.sendNotify(\$.name, \`【京东账号\${\$.index}】\${\$.nickName}\\n\${message}\`);");
 		await fs.writeFileSync(process.env.JDPATH + 'jd_speed_coin.js', cont_speed, 'utf8');
     		console.log("jd_speed_coin.js已成功修改!");
     }catch(e){
