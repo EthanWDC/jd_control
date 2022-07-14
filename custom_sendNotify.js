@@ -539,11 +539,16 @@ function ChangeUserId(desp) {
     //let userId = ""; //Ethan Change
     let userId = "XXX";
     for (let i = 0; i < userIdTmp.length; i++) {
-      const count = "账号" + (i + 1);
-      const count2 = "签到号 " + (i + 1);
-      const count3 = "京东号 " + (i + 1);
+      const count1 = "账号" + (i + 1);
+      const count2 = "账号 " + (i + 1);	
+      const count3 = "帐号" + (i + 1);
+      const count4 = "帐号 " + (i + 1);
+      const count5 = "签到号" + (i + 1);
+      const count6 = "签到号 " + (i + 1);
+      const count7 = "京东号" + (i + 1);
+      const count8 = "京东号 " + (i + 1);
       //if (desp.match(count2)) { //Ethan Deleted
-      if (desp.match(count) || desp.match(count2) || desp.match(count3)) { //Ethan Added
+      if (desp.match(count1) || desp.match(count2) || desp.match(count3) || desp.match(count4) || desp.match(count5) || desp.match(count6) || desp.match(count7) || desp.match(count8)) { //Ethan Added
         userId = userIdTmp[i];
       }
     }
