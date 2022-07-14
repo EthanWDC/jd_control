@@ -301,6 +301,17 @@ async function update_file(results) {
     	console.log("jd_bean_sign.ts修改失败...");
     }	
 	
+    //修改jd_fruit_help.ts
+    try{
+	let cont_fruithelp = await fs.readFileSync(process.env.JDPATH + 'jd_fruit_help.ts', 'utf8');
+ 	//replace之后的内容稍有不同，防止重复replace
+    	cont_fruithelp = cont_fruithelp.replace(/\"农场助力\"\, message/, `"农场助力", 【京东账号${index}】${UserName}\nmessage`);
+	await fs.writeFileSync(process.env.JDPATH + 'jd_fruit_help.ts', cont_fruithelp, 'utf8');
+    	console.log("jd_fruit_help.ts已成功修改!");
+    }catch(e){
+    	console.log("jd_fruit_help.ts修改失败...");
+    }	
+	
 	//修改jd_speed_sign.js
 	try{
 		let cont_speed = await fs.readFileSync(process.env.JDPATH + 'jd_speed_sign.js', 'utf8');
