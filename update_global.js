@@ -310,18 +310,18 @@ async function update_file(results) {
     	console.log("jd_fruit_help.ts已成功修改!");
     }catch(e){
     	console.log("jd_fruit_help.ts修改失败...");
-	console.log(e);
     }	
 	
 	//修改jd_speed_sign.js
 	try{
 		let cont_speed = await fs.readFileSync(process.env.JDPATH + 'jd_speed_sign.js', 'utf8');
  		//replace之后的内容稍有不同，防止重复replace
-    		cont_speed = cont_speed.replace(/\$\.msg\(\$\.name\,\s*\'\'\,\s*\`京东账号\$\{\$\.index\}\$\{\$\.nickName\}\\n\$\{message\}\`\)\;/, "$.msg($.name, '', `【京东账号${$.index}】${$.nickName}\n${message}`); notify.sendNotify($.name, `京东账号${$.index} ${$.nickName}\n${message}`);");
+    		cont_speed = cont_speed.replace(/\$\.msg\(\$\.name\,\s*\'\'\,\s*\`京东账号\$\{\$\.index\}\$\{\$\.nickName\}\\n\$\{message\}\`\)\;/, "\$.msg(\$.name, \'\', \`【京东账号\${\$.index}】\${\$.nickName}\n\${message}\`); notify.sendNotify(\$.name, \`【京东账号\${\$.index}】\${\$.nickName}\\n\${message}\`);");
 		await fs.writeFileSync(process.env.JDPATH + 'jd_speed_sign.js', cont_speed, 'utf8');
     		console.log("jd_speed_sign.js已成功修改!");
     }catch(e){
     	console.log("jd_speed_sign.js修改失败...");
+	console.log(e);
     }
 }
 
