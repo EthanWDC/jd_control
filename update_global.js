@@ -267,7 +267,7 @@ async function update_file(results) {
 	if ($.tuanIdS && $.tuanIdS.tuanActiveId) {
     	content = content.replace(/let\s*tuanActiveId\s*=\s*`(.*)`;/, "let tuanActiveId = `"+$.tuanIdS.tuanActiveId+"`;"); 
     	console.log("TuanActiveId:" + $.tuanIdS.tuanActiveId);
-    }
+    	}
 
 	//覆盖获取TuanActivityId源
 	let json_address = 'https://raw.githubusercontent.com/gitupdate/updateTeam/master/shareCodes/jd_updateFactoryTuanId.json';
@@ -290,7 +290,17 @@ async function update_file(results) {
     }catch(e){
     	console.log("将cookie提交到JDCookies.txt失败...");
     }
-
+    //修改jd_bean_sign.ts
+    try{
+	let cont_beansign = await fs.readFileSync(process.env.JDPATH + 'jd_bean_sign.ts', 'utf8');
+ 	//replace之后的内容稍有不同，防止重复replace
+    	cont_beansign = cont_beansign.replace(/replace\(\/红包\/g, \'红包\\n\\n\'\)/, "replace(/\n【签到号一/g, '\n\n【签到号1 ').replace(/\n【签到号二/g, '\n\n【签到号2 ').replace(/\n【签到号三/g, '\n\n【签到号3 ').replace(/\n【签到号四/g, '\n\n【签到号4 ').replace(/\n【签到号五/g, '\n\n【签到号5 ').replace(/\n【签到号六/g, '\n\n【签到号6 ').replace(/\n【签到号七/g, '\n\n【签到号7 ').replace(/\n【签到号八/g, '\n\n【签到号8 ').replace(/\n【签到号九/g, '\n\n【签到号9 ').replace(/\n【签到号十/g, '\n\n【签到号10 ')");
+	await fs.writeFileSync(process.env.JDPATH + 'jd_bean_sign.ts', cont_beansign, 'utf8');
+    	console.log("jd_bean_sign.ts已成功修改!");
+    }catch(e){
+    	console.log("jd_bean_sign.ts修改失败...");
+    }	
+	
 	//修改jd_speed_sign.js
 	try{
 		let cont_speed = await fs.readFileSync(process.env.JDPATH + 'jd_speed_sign.js', 'utf8');
