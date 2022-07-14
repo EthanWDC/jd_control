@@ -283,12 +283,13 @@ async function update_file(results) {
 	//await fs.writeFileSync( '/scripts/sendNotify.js', cont_notify, 'utf8');
     	//console.log("覆盖sendNotify.js");
 
-	//将cookie提交到jdEnv.py
-	try{
+    //将cookie提交到jdEnv.py
+    try{
     	await fs.writeFileSync( process.env.JDPATH + 'JDCookies.txt', $.jd_cookie_txt, 'utf8');
     	console.log("cookie已成功提交到JDCookies.txt!");
     }catch(e){
     	console.log("将cookie提交到JDCookies.txt失败...");
+	console.log(e);
     }
     //修改jd_bean_sign.ts
     try{
@@ -299,6 +300,7 @@ async function update_file(results) {
     	console.log("jd_bean_sign.ts已成功修改!");
     }catch(e){
     	console.log("jd_bean_sign.ts修改失败...");
+	console.log(e);
     }	
 	
     //修改jd_fruit_help.ts
@@ -306,11 +308,12 @@ async function update_file(results) {
 	let cont_fruithelp = await fs.readFileSync(process.env.JDPATH + 'jd_fruit_help.ts', 'utf8');
  	//replace之后的内容稍有不同，防止重复replace
     	cont_fruithelp = cont_fruithelp.replace(/\`【助力已领取】/, '\`【京东账号\${index+1}】\${UserName}\\n【助力已领取】');
-	cont_fruithelp = cont_fruithelp.replace(/message\s*+=\s*\'\\n\\n\'/, '');
+	cont_fruithelp = cont_fruithelp.replace(/message\s*+=\s*\'\\n\\n\'/, " ");
 	await fs.writeFileSync(process.env.JDPATH + 'jd_fruit_help.ts', cont_fruithelp, 'utf8');
     	console.log("jd_fruit_help.ts已成功修改!");
     }catch(e){
     	console.log("jd_fruit_help.ts修改失败...");
+	console.log(e);
     }	
 	
 	//修改jd_speed_coin.js
