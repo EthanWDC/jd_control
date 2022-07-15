@@ -54,8 +54,8 @@ async function update_file() {
  	//replace之后的内容稍有不同，防止重复replace
     	cont_beanchange = cont_beanchange.replace(/\(\$.levelName\s*\|\|\s*\$.JingXiang\)\s*\{/, '\(0\)\{');
 	cont_beanchange = cont_beanchange.replace(/【账号\$\{IndexAll\}\s*\$\{\$.nickName\s*\|\|\s*\$.UserName\}】/g, '【账号\$\{IndexAll\}】\$\{\$.nickName \|\| \$.UserName\}');        
-	cont_beanchange = cont_beanchange.replace(/\+\s*allReceiveMessage/, '\+allReceiveMessage.replace(/\\n/g,\"\\n\\n\")');
-	cont_beanchange = cont_beanchange.replace(/\+\s*allWarnMessage/, '\+allWarnMessage.replace(/\\n/g,\"\\n\\n\")');
+	cont_beanchange = cont_beanchange.replace(/\+\s*allReceiveMessage/, '\+allReceiveMessage.replace(/\\n/g,\"\\n\\n【⏰商品白嫖活动领取提醒⏰】\\n\")');
+	cont_beanchange = cont_beanchange.replace(/\+\s*allWarnMessage/, '\+allWarnMessage.replace(/\\n/g,\"\\n\\n【⏰商品白嫖活动任务提醒⏰】\\n\")');
 	cont_beanchange = cont_beanchange.replace(/🧧🧧🧧红包明细🧧🧧🧧\\n/, '\\n🧧🧧🧧红包明细🧧🧧🧧\\n【账号\$\{IndexAll\}】\$\{\$.nickName \|\| \$.UserName\}');    
 	await fs.writeFileSync(process.env.JDPATH + 'jd_bean_change.js', cont_beanchange, 'utf8');
     	console.log("jd_bean_change.js已成功修改!");
