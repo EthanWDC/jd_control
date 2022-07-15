@@ -332,7 +332,9 @@ async function update_file(results) {
 	let cont_beanchange = await fs.readFileSync(process.env.JDPATH + 'jd_bean_change.js', 'utf8');
  	//replace之后的内容稍有不同，防止重复replace
     	cont_beanchange = cont_beanchange.replace(/\(\$.levelName\s*\|\|\s*\$.JingXiang\)\s*\{/, '\(0\)\{');
-	cont_beanchange = cont_beanchange.replace(/message\s*\+\=\s*\'\\n\\n\'/, '');        
+	cont_beanchange = cont_beanchange.replace(/【账号\$\{IndexAll\}\s*\$\{\$.nickName\s*\|\|\s*\$.UserName\}】/, '【账号\$\{IndexAll\}】\$\{\$.nickName \|\| \$.UserName\}');        
+	cont_beanchange = cont_beanchange.replace(/\+\s*allReceiveMessage/, '\+ allReceiveMessage.replace(/\\n/,\"\\n\\n\")');
+	cont_beanchange = cont_beanchange.replace(/\+\s*allWarnMessage/, '\+ allWarnMessage.replace(/\\n/,\"\\n\\n\")');
 	await fs.writeFileSync(process.env.JDPATH + 'jd_bean_change.js', cont_beanchange, 'utf8');
     	console.log("jd_bean_change.js已成功修改!");
     }catch(e){
