@@ -537,7 +537,7 @@ function ChangeUserId(desp) {
   if (QYWX_AM_AY[2]) {
     const userIdTmp = QYWX_AM_AY[2].split("|");
     //let userId = ""; //Ethan Change
-    let userId = "XXX";
+    let userId = "ethan";
     for (let i = 0; i < userIdTmp.length; i++) {
       const count1 = "账号" + (i + 1);
       const count2 = "账号 " + (i + 1);	
@@ -553,7 +553,6 @@ function ChangeUserId(desp) {
       }
     }
     //if (!userId) userId = QYWX_AM_AY[2]; //Ethan Changed
-    if (userId == "XXX") userId = "ethan"; //empty=dont send, only send to admin when not relevant to user account
     return userId;
   } else {
     //return "@all"; //Ethan Changed
