@@ -327,6 +327,18 @@ async function update_file(results) {
     	console.log("jd_speed_coin.js修改失败...");
 	console.log(e);
     }
+    //修改jd_bean_change.js
+    try{
+	let cont_beanchange = await fs.readFileSync(process.env.JDPATH + 'jd_bean_change.js', 'utf8');
+ 	//replace之后的内容稍有不同，防止重复replace
+    	cont_beanchange = cont_beanchange.replace(/\(\$.levelName\s*\|\|\s*\$.JingXiang\)\s*\{/, '\(0\)\{');
+	cont_beanchange = cont_beanchange.replace(/message\s*\+\=\s*\'\\n\\n\'/, '');        
+	await fs.writeFileSync(process.env.JDPATH + 'jd_bean_change.js', cont_beanchange, 'utf8');
+    	console.log("jd_bean_change.js已成功修改!");
+    }catch(e){
+    	console.log("jd_bean_change.js修改失败...");
+	console.log(e);
+    }
 }
 
 function updateTuanIdsCDN(url) {
