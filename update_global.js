@@ -291,6 +291,9 @@ async function update_file(results) {
     	console.log("将cookie提交到JDCookies.txt失败...");
 	console.log(e);
     }
+	
+	
+/* 移动到update_file_static.js	
     //修改jd_bean_sign.ts
     try{
 	let cont_beansign = await fs.readFileSync(process.env.JDPATH + 'jd_bean_sign.ts', 'utf8');
@@ -333,14 +336,15 @@ async function update_file(results) {
  	//replace之后的内容稍有不同，防止重复replace
     	cont_beanchange = cont_beanchange.replace(/\(\$.levelName\s*\|\|\s*\$.JingXiang\)\s*\{/, '\(0\)\{');
 	cont_beanchange = cont_beanchange.replace(/【账号\$\{IndexAll\}\s*\$\{\$.nickName\s*\|\|\s*\$.UserName\}】/, '【账号\$\{IndexAll\}】\$\{\$.nickName \|\| \$.UserName\}');        
-	cont_beanchange = cont_beanchange.replace(/\+\s*allReceiveMessage/, '\+ allReceiveMessage.replace(/\\n/,\"\\n\\n\")');
-	cont_beanchange = cont_beanchange.replace(/\+\s*allWarnMessage/, '\+ allWarnMessage.replace(/\\n/,\"\\n\\n\")');
+	cont_beanchange = cont_beanchange.replace(/\+ allReceiveMessage/, '\+allReceiveMessage.replace(/\\n/,\"\\n\\n\")'); //不要\s*以免不断替换
+	cont_beanchange = cont_beanchange.replace(/\+ allWarnMessage/, '\+allWarnMessage.replace(/\\n/,\"\\n\\n\")'); //不要\s*以免不断替换
 	await fs.writeFileSync(process.env.JDPATH + 'jd_bean_change.js', cont_beanchange, 'utf8');
     	console.log("jd_bean_change.js已成功修改!");
     }catch(e){
     	console.log("jd_bean_change.js修改失败...");
 	console.log(e);
     }
+*/
 }
 
 function updateTuanIdsCDN(url) {
