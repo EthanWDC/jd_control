@@ -56,6 +56,7 @@ async function update_file() {
 	cont_beanchange = cont_beanchange.replace(/【账号\$\{IndexAll\}\s*\$\{\$.nickName\s*\|\|\s*\$.UserName\}】/g, '【账号\$\{IndexAll\}】\$\{\$.nickName \|\| \$.UserName\}');        
 	cont_beanchange = cont_beanchange.replace(/\+\s*allReceiveMessage/, '\+allReceiveMessage.replace(/\\n/g,\"\\n\\n\")');
 	cont_beanchange = cont_beanchange.replace(/\+\s*allWarnMessage/, '\+allWarnMessage.replace(/\\n/g,\"\\n\\n\")');
+	cont_beanchange = cont_beanchange.replace(/🧧🧧🧧红包明细🧧🧧🧧/, '\\n\\n🧧🧧🧧红包明细🧧🧧🧧');    
 	await fs.writeFileSync(process.env.JDPATH + 'jd_bean_change.js', cont_beanchange, 'utf8');
     	console.log("jd_bean_change.js已成功修改!");
     }catch(e){
